@@ -1,3 +1,4 @@
+[![Deploy Infrastructure, Test the Lambda-Function](https://github.com/sbendarsky/cloud-resume-challenge/actions/workflows/cicd.yml/badge.svg)](https://github.com/sbendarsky/cloud-resume-challenge/actions/workflows/cicd.yml)
 # AWS - Cloud Resume Challenge
 The [The Cloud Resume Challenge](https://cloudresumechallenge.dev/) is all about flaunting your skills in cloud tech. I've built my own resume site using Amazon Web Services - it's where I showcase my hands-on experience with the latest cloud solutions.
 
