@@ -2,7 +2,7 @@ name: Deploy Infrastructure, Test the Lambda-Function
 on:
     push:
         branches:
-        - master
+        - main
 jobs:
 
     testLambda:
