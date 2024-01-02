@@ -1,8 +1,11 @@
-name: Deploy Infrastructure, Test the Lambda-Function
+name: CI / CD
 on:
     push:
         branches:
         - main
+        paths:
+        - 'web/**'
+
 jobs:
 
     testLambda:
