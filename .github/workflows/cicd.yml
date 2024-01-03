@@ -26,7 +26,52 @@ jobs:
              
      - name: terraform apply
        id: apply
-       run: cd terraform && terraform apply -auto-approve
+       run: |
+          cd terraform
+
+          if terraform import -dry-run aws_s3_bucket.my_bucket resume.sbendarsky.me; then
+            terraform import aws_s3_bucket.my_bucket resume.sbendarsky.me
+          else
+            echo "S3 bucket does not exist or import failed."
+          fi
+
+          if terraform import -dry-run aws_iam_user.cloudfront_dummy_user cloudfront_dummy_user; then
+            terraform import aws_iam_user.cloudfront_dummy_user cloudfront_dummy_user
+          else
+            echo "IAM user does not exist or import failed."
+          fi
+
+          if terraform import -dry-run aws_iam_role.cloudfront_s3_access_role CloudFrontS3AccessRole; then
+            terraform import aws_iam_role.cloudfront_s3_access_role CloudFrontS3AccessRole
+          else
+            echo "IAM role (CloudFrontS3AccessRole) does not exist or import failed."
+          fi
+
+          if terraform import -dry-run aws_iam_role.iam_for_lambda iam_for_lambda; then
+            terraform import aws_iam_role.iam_for_lambda iam_for_lambda
+          else
+            echo "IAM role (iam_for_lambda) does not exist or import failed."
+          fi
+
+          if terraform import -dry-run aws_iam_policy.iam_policy_for_resume_project aws_iam_policy_for_terraform_resume_project_policy; then
+            terraform import aws_iam_policy.iam_policy_for_resume_project aws_iam_policy_for_terraform_resume_project_policy
+          else
+            echo "IAM policy does not exist or import failed."
+          fi
+
+          if terraform import -dry-run aws_dynamodb_table.dynamodbtable cloudresume-table; then
+            terraform import aws_dynamodb_table.dynamodbtable cloudresume-table
+          else
+            echo "DynamoDB table does not exist or import failed."
+          fi
+          
+          # Apply changes
+          if terraform apply -auto-approve; then
+            echo "Terraform apply succeeded."
+          else
+            echo "Terraform apply failed."
+          fi
+
 
  sync-website:
    name: Sync Website
