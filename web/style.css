@@ -36,7 +36,7 @@ body, html {
 /* Main Details */
 .mainDetails {
     padding: 25px 35px;
-    border-bottom: 2px solid #ec407a;
+    border-bottom: 2px solid #4093ec;
     background: #ededed;
 }
 
@@ -54,7 +54,7 @@ p {
     font-weight: 700;
     font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
     margin-bottom: -6px;
-    color: #ec407a;
+    color: #4093ec;
 }
 
 #name h2 {
@@ -104,7 +104,7 @@ p {
 }
 
 #contactDetails ul li a:hover {
-    color: #ec407a;
+    color: #4093ec;
 }
 
 /* Sections */
@@ -149,7 +149,7 @@ section:last-child {
     font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
     font-style: normal;
     font-size: 1.2em;
-    color: #ec407a;
+    color: #4093ec;
     font-weight: 700;
     margin-bottom: 8px;
     margin-left: -5px;
