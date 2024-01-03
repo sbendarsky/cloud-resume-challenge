@@ -6,29 +6,37 @@ on:
 
 jobs:
 
-  deploy:
-    runs-on: ubuntu-latest
+ Infrastructure:
+   name: Terraform Infrastructure
+   runs-on: ubuntu-latest
+   env:
+     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v2
+     
+     - name: Init
+       id: init
+       run: cd terraform && terraform init
+     
+     - name: plan
+       id: plan
+       run: cd terraform && terraform plan -out=tfplan
+             
+     - name: terraform apply
+       id: apply
+       run: |
+        cd terraform
+        if [ -e tfplan ]; then
+          aws s3 cp s3://my-tfstate-bucket-resume/tfplan .
+          terraform apply tfplan -auto-approve
+          aws s3 cp tfplan s3://my-tfstate-bucket-resume/tfplan
+        else
+          echo "No changes"
+        fi
 
-    needs: build
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-
-      - name: Initialize Terraform
-        run: terraform init ./terraform
-
-      - name: Terraform Plan
-        run: terraform plan -out=tfplan ./terraform
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan
-
-      - name: Terrafrom Destroy
-        run: terraform destroy -auto-approve ./terraform
 
  sync-website:
    name: Sync Website
