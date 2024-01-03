@@ -3,7 +3,7 @@ import requests
 import pytest
 
 # Replace this URL with your Lambda function URL
-LAMBDA_URL = "https://rrch6yoqsmpsln5qbissoy3vk40jnglm.lambda-url.us-east-1.on.aws/"
+LAMBDA_URL = "https://mbjn6iccj2gmyqcsym77hxxy3a0ytxny.lambda-url.us-east-1.on.aws/"
 
 @pytest.fixture
 def lambda_url():
