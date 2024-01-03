@@ -1,4 +1,4 @@
-[![CI / CD](https://github.com/sbendarsky/cloud-resume-challenge/actions/workflows/cicd.yml/badge.svg?branch=main)](https://github.com/sbendarsky/cloud-resume-challenge/actions/workflows/cicd.yml)
+[![Frontend CI/CD](https://github.com/sbendarsky/cloud-resume-challenge/actions/workflows/frontend.yml/badge.svg)](https://github.com/sbendarsky/cloud-resume-challenge/actions/workflows/frontend.yml)
 # AWS - Cloud Resume Challenge
 The [The Cloud Resume Challenge](https://cloudresumechallenge.dev/) is all about flaunting your skills in cloud tech. I've built my own resume site using Amazon Web Services - it's where I showcase my hands-on experience with the latest cloud solutions.
 
