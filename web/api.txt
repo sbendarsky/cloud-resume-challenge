@@ -1,1 +1,1 @@
-https://rrch6yoqsmpsln5qbissoy3vk40jnglm.lambda-url.us-east-1.on.aws/
+https://mbjn6iccj2gmyqcsym77hxxy3a0ytxny.lambda-url.us-east-1.on.aws/
