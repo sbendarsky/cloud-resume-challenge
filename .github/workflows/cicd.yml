@@ -28,6 +28,7 @@ jobs:
        id: apply
        run: |
           cd terraform
+          aws s3 cp tfplan s3://my-tfstate-bucket-resume
           terraform apply -auto-approve tfplan
 
  sync-website:
