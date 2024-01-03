@@ -1,7 +1,7 @@
 #Create Route53 Record
 resource "aws_route53_record" "cloudfront_record" {
   zone_id = "Z0812785FWYP51NI40L5"  
-  name    = "terraform"     
+  name    = "resume"     
   type    = "A"
 
   alias {

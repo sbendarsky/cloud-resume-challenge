@@ -14,7 +14,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   comment             = "My CloudFront Distribution"
   default_root_object = "index.html"
 
-  aliases = ["terraform.sbendarsky.me"]
+  aliases = ["resume.sbendarsky.me"]
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
