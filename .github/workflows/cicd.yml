@@ -33,7 +33,7 @@ jobs:
           terraform import aws_iam_user.cloudfront_dummy_user cloudfront_dummy_user
           terraform import aws_iam_role.cloudfront_s3_access_role CloudFrontS3AccessRole
           terraform import aws_iam_role.iam_for_lambda iam_for_lambda
-          terraform import aws_iam_policy.iam_policy_for_resume_project aws_iam_policy_for_terraform_resume_project_policy
+          terraform import aws_iam_policy.iam_policy_for_resume_project arn:aws:iam::489653259257:policy/aws_iam_policy_for_terraform_resume_project_policy
           terraform import aws_dynamodb_table.dynamodbtable cloudresume-table
           
           # Apply changes
