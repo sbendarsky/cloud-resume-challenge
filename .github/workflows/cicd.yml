@@ -43,6 +43,10 @@ jobs:
             echo "Terraform apply failed."
           fi
 
+          - name: destroy
+          id: destroy
+          run: cd terraform && terraform destroy -auto-approve
+
 
  sync-website:
    name: Sync Website
