@@ -22,11 +22,11 @@ jobs:
      
      - name: plan
        id: plan
-       run: terraform plan -out=tfplan
+       run: cd terraform && terraform plan -out=tfplan
              
      - name: terraform apply
        id: apply
-       run: terraform apply -auto-approve
+       run: cd terraform && terraform apply -auto-approve
 
  sync-website:
    name: Sync Website
