@@ -22,14 +22,20 @@ jobs:
           terraform init -backend=false
           terraform fmt -check -recursive
           terraform validate
-          echo "::set-output name=changes::$(git diff --exit-code || echo 'true')"
+          echo "changes=$(git diff --exit-code || echo 'true')" >> $GITHUB_ENV
+
+      - name: Initialize Terraform
+        if: env.changes == 'true'
+        run: terraform init
+
+      - name: Terraform Plan
+        if: env.changes == 'true'
+        run: terraform plan -out=tfplan
 
       - name: Terraform Apply
-        if: steps.terraform-changes.outputs.changes == 'true'
+        if: env.changes == 'true'
         run: |
           cd terraform
-          terraform init
-          terraform plan -out=tfplan
           terraform apply -auto-approve tfplan
           aws s3 cp tfplan s3://my-tfstate-bucket-resume/tfplan
           aws s3 cp terraform.tfstate s3://my-tfstate-bucket-resume/terraform.tfstate
