@@ -6,44 +6,29 @@ on:
 
 jobs:
 
- Infrastructure:
-   name: Terraform Infrastructure
-   runs-on: ubuntu-latest
-   env:
-     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-   steps:
-     - name: Checkout
-       uses: actions/checkout@v2
-     
-     - name: Init
-       id: init
-       run: cd terraform && terraform init
-     
-     - name: plan
-       id: plan
-       run: cd terraform && terraform plan -out=tfplan
-             
-     - name: terraform apply
-       id: apply
-       run: |
-          cd terraform
+  deploy:
+    runs-on: ubuntu-latest
 
-          terraform import aws_s3_bucket.my_bucket resume.sbendarsky.me
-          terraform import aws_iam_user.cloudfront_dummy_user cloudfront_dummy_user
-          terraform import aws_iam_role.cloudfront_s3_access_role CloudFrontS3AccessRole
-          terraform import aws_iam_role.iam_for_lambda iam_for_lambda
-          terraform import aws_iam_policy.iam_policy_for_resume_project arn:aws:iam::489653259257:policy/aws_iam_policy_for_terraform_resume_project_policy
-          terraform import aws_dynamodb_table.dynamodbtable cloudresume-table
-          
-          # Apply changes
-          if terraform apply -auto-approve; then
-            echo "Terraform apply succeeded."
-          else
-            echo "Terraform apply failed."
-          fi
-          
-          terraform destroy -auto-approve
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Initialize Terraform
+        run: terraform init ./terraform
+
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan ./terraform
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve tfplan
+
+      - name: Terrafrom Destroy
+        run: terraform destroy -auto-approve ./terraform
 
  sync-website:
    name: Sync Website
