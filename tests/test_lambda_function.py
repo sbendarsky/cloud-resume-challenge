@@ -17,10 +17,8 @@ def lambda_url():
     return get_lambda_url()
 
 def test_lambda_function(lambda_url):
-    # Prepare a sample event (you may need to adjust this based on your actual Lambda function input)
-    event = {"key": "value"}
-
     # Send a POST request to the Lambda function
+    event = {}  # Adjust the event data as needed for your Lambda function
     response = requests.post(lambda_url, data=json.dumps(event))
 
     # Check if the request was successful (status code 200)
@@ -28,13 +26,10 @@ def test_lambda_function(lambda_url):
 
     try:
         result = response.json()
-        if isinstance(result, int):
-            result = {"views": result}
         assert "views" in result
         assert isinstance(result["views"], int)
 
     except json.JSONDecodeError:
-        # Handle the case where the response is not a valid JSON
         pytest.fail("Response is not a valid JSON")
 
 if __name__ == "__main__":
