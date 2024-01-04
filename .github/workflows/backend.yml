@@ -23,8 +23,6 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: 0.12.24
 
       - name: Terraform init
         run: cd terraform && terraform init
