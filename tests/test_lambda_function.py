@@ -2,12 +2,19 @@ import json
 import requests
 import pytest
 
-# Replace this URL with your Lambda function URL
-LAMBDA_URL = "https://aon7cp4yadxpwhaunz5cj55qcy0qlsux.lambda-url.us-east-1.on.aws/"
+# Function to fetch Lambda URL from the provided API
+def get_lambda_url():
+    api_url = "https://resume.sbendarsky.me/api.txt"
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        return response.text.strip()
+    else:
+        raise ValueError(f"Failed to fetch Lambda URL. Status code: {response.status_code}")
 
 @pytest.fixture
 def lambda_url():
-    return LAMBDA_URL
+    return get_lambda_url()
 
 def test_lambda_function(lambda_url):
     # Prepare a sample event (you may need to adjust this based on your actual Lambda function input)
