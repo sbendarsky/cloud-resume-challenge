@@ -33,5 +33,5 @@ jobs:
       - name: Terraform plan
         run: cd terraform && terraform plan
 
-      - name: Terraform destroy
-        run: cd terraform && terraform destroy -auto-approve
+      - name: Terraform apply
+        run: cd terraform && terraform apply -auto-approve
