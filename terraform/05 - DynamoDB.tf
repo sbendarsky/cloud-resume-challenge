@@ -20,4 +20,9 @@ resource "aws_dynamodb_table_item" "dynamodbtableitem" {
   "views": {"N": "1"}
 }
 EOF
+
+# make it so that item isnt updated after apply changes
+lifecycle {
+  ignore_changes = [item]
+}
 }
