@@ -33,6 +33,8 @@ body, html {
     margin: 30px auto;
 }
 
+
+
 /* Main Details */
 .mainDetails {
     padding: 25px 35px;
@@ -44,7 +46,7 @@ body, html {
 p {
     font-size: 1em;
     line-height: 1.4em;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #444;
 }
 
@@ -109,55 +111,42 @@ p {
 
 /* Sections */
 section {
-    border-top: 1px solid #dedede;
-    padding: 20px 0 0;
+    padding: 20px 0 10px;
 }
 
 section:first-child {
     border-top: 0;
 }
 
-section:last-child {
-    padding: 20px 0 10px;
-}
-
 /* Section Titles and Content */
+details summary {
+    cursor: pointer;
+    position: relative;
+
+}
+
+.two-column-section details summary h2 {
+    margin: 0; /* Remove any default margin */
+    display: inline-block;
+
+}
+
+details summary ul {
+    padding-left: 10px;
+}
+
+
 .sectionTitle {
-    float: left;
-    width: 25%;
-}
-
-.sectionTitle.full-width {
-    float: left;
-    width: 25%;
-    margin-bottom: 10px;
-}
-
-.sectionContent {
-    float: right;
-    width: 72.5%;
-}
-
-.sectionContent.full-width {
-    width: 100%;
-    float: left;
-    margin: 0;
-    padding: 0;
-}
-
-.sectionTitle h1 {
-    font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
-    font-style: normal;
     font-size: 1.2em;
     color: #4093ec;
     font-weight: 700;
-    margin-bottom: 8px;
-    margin-left: -5px;
+    margin-bottom: 5px;
     text-transform: uppercase;
 }
 
+
+
 .sectionContent h2 {
-    font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
     font-size: 1.3em;
     margin-bottom: -2px;
 }
@@ -169,6 +158,53 @@ section:last-child {
 }
 
 /* Lists and Columns */
+.certifications {
+    list-style-type: none;
+    color: #444;
+    padding-left: 12px;
+}
+
+.certifications li .cert-date {
+    font-size: 0.8em; /* Adjust as needed for the date font size */
+    color: #777; /* Date color */
+    padding-left: 110px; /* Adjust as needed for the padding */
+    margin-left: auto; /* Move the date to the end of the column */
+}
+.click-here {
+    margin-left: 10px; /* Adjust as needed for spacing between date and "Click Here" */
+}
+
+.click-here a {
+    color: #4093ec; /* Link color */
+    text-decoration: underline; /* Underline the link */
+}
+
+.click-here a i {
+    margin-left: 3px; /* Adjust as needed for spacing between text and icon */
+}
+.certifications li {
+    position: relative;
+    padding-left: 15px; /* Adjust as needed for spacing between bullet and text */
+    margin-bottom: 5px; /* Adjust as needed for spacing between items */
+}
+
+.certifications li::before {
+    content: '\2022'; /* Unicode character for a bullet */
+    position: absolute;
+    left: 0;
+}
+
+.keySkills {
+    list-style-type: none;
+    column-count: 3;
+    column-gap: 20px; /* Adjust as needed for spacing between columns */
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #444;
+    margin-left: 4px
+}
+
+/* Clearfix to prevent column content overlapping */
 .keySkills {
     list-style-type: none;
     -moz-column-count: 3;
@@ -177,11 +213,21 @@ section:last-child {
     margin-bottom: 20px;
     font-size: 1em;
     color: #444;
+    padding-left: 5px; /* Add some left padding for the bullets */
 }
 
-.keySkills ul li {
-    margin-bottom: 3px;
+.keySkills li {
+    position: relative;
+    padding-left: 15px; /* Adjust as needed for spacing between bullet and text */
+    margin-bottom: 5px; /* Adjust as needed for spacing between items */
 }
+
+.keySkills li::before {
+    content: '\2022'; /* Unicode character for a bullet */
+    position: absolute;
+    left: 0;
+}
+
 
 .education-list li {
     margin-bottom: 1em;
@@ -321,6 +367,31 @@ section:last-child {
         opacity: 1;
     }
 }
+
+/* Add the following CSS rules for the two-column layout */
+
+.two-column-section {
+    display: flex;
+}
+
+.two-column-section .column {
+    width: 48%; /* Adjust as needed to leave some margin */
+    margin-right: 2%;
+}
+
+.sectionLine {
+    width: 95%; /* Full width of the column */
+    height: 1px; /* Line thickness */
+    background-color: #a8a8a8c8; /* Line color */
+    margin-top: 5px; /* Adjust as needed for spacing */
+}
+
+.two-column-section .column.right {
+    margin-right: 0;
+}
+
+/* Add your existing CSS styles here */
+
 
 @keyframes reset {
     0% {

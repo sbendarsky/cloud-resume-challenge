@@ -23,7 +23,7 @@ async function updateCounter() {
         let data = await dataResponse.json();
 
         // Update the counter with the retrieved data
-        counter.innerHTML = `Visitors: ${data}`;
+        counter.innerHTML = `${data}`;
     } catch (error) {
         console.error("An error occurred while updating the counter:", error.message);
     }
