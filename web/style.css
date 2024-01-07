@@ -170,10 +170,29 @@ details summary ul {
     padding-left: 110px; /* Adjust as needed for the padding */
     margin-left: auto; /* Move the date to the end of the column */
 }
-.click-here {
-    margin-left: 10px; /* Adjust as needed for spacing between date and "Click Here" */
+
+.certifications li .cert-date-a {
+    font-size: 0.8em; /* Adjust as needed for the date font size */
+    color: #777; /* Date color */
+    padding-left: 29px; /* Adjust as needed for the padding */
+    margin-left: auto; /* Move the date to the end of the column */
 }
 
+.click-here {
+    margin-left: 5px; /* Adjust as needed for spacing between date and "Click Here" */
+}
+
+.click-here-a {
+    margin-left: 2px;
+}
+
+.click-here a {
+    color: #4093ec; /* Link color */
+    text-decoration: underline; /* Underline the link */
+}
+.click-here-a a i {
+    margin-left: 3px; /* Adjust as needed for spacing between text and icon */
+}
 .click-here a {
     color: #4093ec; /* Link color */
     text-decoration: underline; /* Underline the link */
