@@ -164,47 +164,10 @@ details summary ul {
     padding-left: 12px;
 }
 
-.certifications li .cert-date {
-    font-size: 0.8em; /* Adjust as needed for the date font size */
-    color: #777; /* Date color */
-    padding-left: 110px; /* Adjust as needed for the padding */
-    margin-left: auto; /* Move the date to the end of the column */
-}
-
-.certifications li .cert-date-a {
-    font-size: 0.8em; /* Adjust as needed for the date font size */
-    color: #777; /* Date color */
-    padding-left: 29px; /* Adjust as needed for the padding */
-    margin-left: auto; /* Move the date to the end of the column */
-}
-
-.click-here {
-    margin-left: 5px; /* Adjust as needed for spacing between date and "Click Here" */
-}
-
-.click-here-a {
-    margin-left: 2px;
-}
-
-.click-here a {
-    color: #4093ec; /* Link color */
-    text-decoration: underline; /* Underline the link */
-}
-.click-here-a a i {
-    margin-left: 3px; /* Adjust as needed for spacing between text and icon */
-}
-.click-here a {
-    color: #4093ec; /* Link color */
-    text-decoration: underline; /* Underline the link */
-}
-
-.click-here a i {
-    margin-left: 3px; /* Adjust as needed for spacing between text and icon */
-}
 .certifications li {
     position: relative;
     padding-left: 15px; /* Adjust as needed for spacing between bullet and text */
-    margin-bottom: 5px; /* Adjust as needed for spacing between items */
+    margin-bottom: 10px; /* Adjust as needed for spacing between items */
 }
 
 .certifications li::before {
@@ -212,6 +175,42 @@ details summary ul {
     position: absolute;
     left: 0;
 }
+
+.certifications li .cert-date,
+.certifications li .cert-date-a {
+    font-size: 0.8em; /* Adjust as needed for the date font size */
+    color: #777; /* Date color */
+}
+
+.certifications li .cert-date-b {
+    font-size: 0.8em; /* Adjust as needed for the date font size */
+    color: #777; /* Date color */
+    margin-left: 75px; /* Adjust as needed for spacing between date and "Click Here" */
+}
+
+.certifications li .cert-date {
+    padding-left: 110px; /* Adjust as needed for the padding */
+}
+
+.certifications li .cert-date-a {
+    padding-left: 29px; /* Adjust as needed for the padding */
+}
+
+.click-here {
+    margin-left: 5px; /* Adjust as needed for spacing between date and "Click Here" */
+}
+
+.click-here a,
+.click-here-a a {
+    color: #4093ec; /* Link color */
+    text-decoration: underline; /* Underline the link */
+}
+
+.click-here a i,
+.click-here-a a i {
+    margin-left: 3px; /* Adjust as needed for spacing between text and icon */
+}
+
 
 .keySkills {
     list-style-type: none;
